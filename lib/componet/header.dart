@@ -119,7 +119,7 @@ class Header extends StatelessWidget {
                 wSpace(),
                 wSpace(mWidth: 10),
                 Text(
-                  "Student <Name>",
+                  " Pankaj Parihar",
                   style: textStyleFonts18(context, colors: AppColors.wigthColor),
                   maxLines: 1,
                 )
