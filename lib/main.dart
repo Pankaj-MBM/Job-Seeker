@@ -6,7 +6,7 @@ import 'utils/main_screen.dart';
 import 'utils/ui_color_code.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,4 +33,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
