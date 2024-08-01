@@ -16,7 +16,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+    late TabController _tabController;
 
   @override
   void initState() {

@@ -17,105 +17,115 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.black45,
+      color: Colors.black45,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if (!Responsive.isDesktop(context))
             IconButton(
               icon: const Icon(Icons.menu),
-              onPressed: context.read<MenuAppController>().controlMenu,
+              onPressed: () {
+                context.read<MenuAppController>().controlMenu();
+              },
             ),
-          if (!Responsive.isMobile(context)) wSpace(),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                TextButton(
+          if (!Responsive.isMobile(context))
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfileView(),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileView(),
+                        ),
+                      );
                     },
                     child: Text(
                       "Home",
                       style: textStyleFonts18(context,
-                        colors: AppColors.wigthColor
-                      ),
-                    )),
-                TextButton(
+                          colors: AppColors.wigthColor),
+                    ),
+                  ),
+                  TextButton(
                     onPressed: () {},
                     child: Text(
                       "Contact Us",
                       style: textStyleFonts18(context,
                           colors: AppColors.wigthColor),
-                    )),
-                TextButton(
+                    ),
+                  ),
+                  TextButton(
                     onPressed: () {},
                     child: Text(
                       "FAQ's",
                       style: textStyleFonts18(context,
                           colors: AppColors.wigthColor),
-                    )),
-                wSpace(),
-                const MyContainer(
+                    ),
+                  ),
+                  wSpace(),
+                  const MyContainer(
                     text: "Candidate",
                     icon: Icon(
                       Icons.search,
                       color: AppColors.blackColor,
                     ),
-                    color: AppColors.bgButtonColor),
-                wSpace(),
-                const MyContainer(
+                    color: AppColors.bgButtonColor,
+                  ),
+                  wSpace(),
+                  const MyContainer(
                     text: "Find Job",
                     icon: Icon(
                       Icons.search,
                       color: AppColors.blackColor,
                     ),
-                    color: AppColors.bgButtonColor),
-                wSpace(),
-                /*if (!Responsive.isMobile(context))
-              Spacer(flex: Responsive.isDesktop(context) ? 3 : 2),*/
-
-              ],
+                    color: AppColors.bgButtonColor,
+                  ),
+                  wSpace(),
+                ],
+              ),
             ),
-          ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Row(
-               mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height:45,
-                  width:150,
+                  height: 45,
+                  width: 150,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset("assets/svg/wallet.svg",),
-                      SizedBox(width: 20,),
-                      Text("50k",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)
-
+                      SvgPicture.asset("assets/svg/wallet.svg"),
+                      SizedBox(width: 20),
+                      Text(
+                        "50k",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 wSpace(),
                 wSpace(mWidth: 10),
                 Text(
-                  "T.B.P. Public School",
+                  "Student <Name>",
                   style: textStyleFonts18(context, colors: AppColors.wigthColor),
                   maxLines: 1,
                 )
               ],
             ),
           ),
-
         ],
       ),
     );
