@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../controllers/MenuAppController.dart';
 import '../utils/ui_color_code.dart';
 import '../utils/ui_helper.dart';
 class SideMenu extends StatelessWidget {
@@ -21,33 +22,23 @@ class SideMenu extends StatelessWidget {
               height: 90,
               color: Colors.amber,
               child: Center(
-                child: Text(
-                  'Edu Career',
-                  style:
-                      textStyleFonts28(context, colors: AppColors.wigthColor),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Edu Career',
+                      style:
+                          textStyleFonts28(context, colors: AppColors.wigthColor),
+                    ),
+                    InkWell(
+                        onTap:() {
+                          Navigator.of(context).pop(); // Close the drawer
+                        //  Navigator.pop(context);
+                        },
+                        child: Icon(Icons.arrow_back)),
+                  ],
                 ),
               ),
-            ),
-            ExpansionTile(
-              childrenPadding: EdgeInsets.zero,
-              tilePadding: EdgeInsets.zero,
-              title: DrawerListTile(
-                title: "Dashboard",
-                svgSrc: "assets/svg/dashboard.png",
-                press: () {},
-              ),
-              children: [
-                DrawerListTile(
-                  title: "Sub Dashboard 1",
-                  svgSrc: "assets/icons/menu_dashboard.svg",
-                  press: () {},
-                ),
-                DrawerListTile(
-                  title: "Sub Dashboard 2",
-                  svgSrc: "assets/icons/menu_dashboard.svg",
-                  press: () {},
-                ),
-              ],
             ),
             ExpansionTile(
               childrenPadding: EdgeInsets.zero,

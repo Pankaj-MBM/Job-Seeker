@@ -17,8 +17,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey,
-      height: 90,
+        color: Colors.black45,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,113 +27,95 @@ class Header extends StatelessWidget {
               onPressed: context.read<MenuAppController>().controlMenu,
             ),
           if (!Responsive.isMobile(context)) wSpace(),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProfileView(),
-                    ));
-              },
-              child: Text(
-                "Home",
-                style: textStyleFonts18(context),
-              )),
-          wSpace(),
-          TextButton(
-              onPressed: () {},
-              child: Text(
-                "Contact Us",
-                style: textStyleFonts18(context),
-              )),
-          wSpace(),
-          TextButton(
-              onPressed: () {},
-              child: Text(
-                "FAQ's",
-                style: textStyleFonts18(context),
-              )),
-          wSpace(),
-          const MyContainer(
-              text: "Book a Demo",
-              icon: Icon(Icons.search, color: AppColors.blackColor),
-              color: Colors.transparent),
-          wSpace(),
-          const MyContainer(
-              text: "Find a Candidate",
-              icon: Icon(
-                Icons.search,
-                color: AppColors.blackColor,
-              ),
-              color: AppColors.bgButtonColor),
-          wSpace(),
-          const MyContainer(
-              text: "Post New Job",
-              icon: Icon(
-                Icons.search,
-                color: AppColors.blackColor,
-              ),
-              color: AppColors.bgButtonColor),
-          wSpace(),
-          /*if (!Responsive.isMobile(context))
-            Spacer(flex: Responsive.isDesktop(context) ? 3 : 2),*/
-
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 25,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: SvgPicture.asset("assets/svg/wallet.svg")),
-                ),
-              ),
-              Container(
-                height: 25,
-                width: 80,
-                decoration: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.circular(50)),
-                child: Center(
-                  child: Text("0"),
-                ),
-              )
-            ],
-          ),
-          wSpace(),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: SvgPicture.asset(
-                              "assets/svg/institute-placeholder.svg")),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfileView(),
+                          ));
+                    },
+                    child: Text(
+                      "Home",
+                      style: textStyleFonts18(context,
+                        colors: AppColors.wigthColor
+                      ),
+                    )),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Contact Us",
+                      style: textStyleFonts18(context,
+                          colors: AppColors.wigthColor),
+                    )),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "FAQ's",
+                      style: textStyleFonts18(context,
+                          colors: AppColors.wigthColor),
+                    )),
+                wSpace(),
+                const MyContainer(
+                    text: "Candidate",
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.blackColor,
                     ),
+                    color: AppColors.bgButtonColor),
+                wSpace(),
+                const MyContainer(
+                    text: "Find Job",
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.blackColor,
+                    ),
+                    color: AppColors.bgButtonColor),
+                wSpace(),
+                /*if (!Responsive.isMobile(context))
+              Spacer(flex: Responsive.isDesktop(context) ? 3 : 2),*/
+
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+               mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height:45,
+                  width:150,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset("assets/svg/wallet.svg",),
+                      SizedBox(width: 20,),
+                      Text("50k",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)
+
+                    ],
                   ),
-                  hSpacer(mHeight: 5),
-                  Text("0/1")
-                ],
-              ),
-              wSpace(mWidth: 10),
-              Text(
-                "I>T.B.P. Public School",
-                style: textStyleFonts22(context, colors: AppColors.wigthColor),
-                maxLines: 1,
-              )
-            ],
-          )
+                ),
+                wSpace(),
+                wSpace(mWidth: 10),
+                Text(
+                  "T.B.P. Public School",
+                  style: textStyleFonts18(context, colors: AppColors.wigthColor),
+                  maxLines: 1,
+                )
+              ],
+            ),
+          ),
+
         ],
       ),
     );

@@ -81,7 +81,7 @@ TextStyle textStyleFonts18(BuildContext context, {colors = Colors.black}) {
   return Theme.of(context)
       .textTheme
       .headlineMedium!
-      .copyWith(color: colors, fontWeight: FontWeight.bold, fontSize: 18);
+      .copyWith(color: colors, fontWeight: FontWeight.w500, fontSize: 18);
 }
 
 TextStyle textStyleFonts18b(BuildContext context, {colors = Colors.black}) {
